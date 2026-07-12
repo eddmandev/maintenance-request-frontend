@@ -1,0 +1,25 @@
+.navbar{
+    height:80px;
+    background:#1E2A44;
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+}
+
+.logo span{
+    color:#D97A9A;
+}
+
+.profile-icon{
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+}
