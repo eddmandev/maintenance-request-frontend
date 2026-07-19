@@ -1,47 +1,44 @@
-import {Swiper, SwiperSlide} from "swiper/react";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-export default function ServiceCarousel(){
+import "../styles/carousel.css";
 
-    const services=[
-        "Plumbing",
-        "Electrical",
-        "Heating",
-        "Carpentry",
-        "Cleaning",
-        "Appliance Repair"
+import ServiceCard from "./ServiceCard";
+
+import plumbing from "../assets/services/plumbing.jpg";
+import electrical from "../assets/services/electrical.jpg";
+import heating from "../assets/services/heating.jpg";
+import cleaning from "../assets/services/cleaning.jpg";
+import carpentry from "../assets/services/carpentry.jpg";
+import appliance from "../assets/services/appliance.jpg";
+
+function ServiceCarousel() {
+
+    const services = [
+        { title: "Plumbing", image: plumbing },
+        { title: "Electrical", image: electrical },
+        { title: "Heating", image: heating },
+        { title: "Cleaning", image: cleaning },
+        { title: "Carpentry", image: carpentry },
+        { title: "Appliance Repair", image: appliance }
     ];
 
-    return(
-
+    return (
         <Swiper
-            spaceBetween={30}
             slidesPerView={3}
+            spaceBetween={30}
             loop={true}
         >
-
-            {services.map(service=>
-
-                <SwiperSlide key={service}>
-
-                    <div className="service-card">
-
-                        <img
-                            src={`/images/${service}.png`}
-                            alt={service}
-                        />
-
-                        <h3>{service}</h3>
-
-                    </div>
-
+            {services.map((service) => (
+                <SwiperSlide key={service.title}>
+                    <ServiceCard
+                        title={service.title}
+                        image={service.image}
+                    />
                 </SwiperSlide>
-
-            )}
-
+            ))}
         </Swiper>
-
     );
-
 }
+
+export default ServiceCarousel;
